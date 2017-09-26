@@ -53,6 +53,9 @@ a {
   color: #0388a6; }
   a:hover {
     color: #009ce0; }
-
+h1 {
+	font-size: 7em;
+	color: #eeefff;
+}
 #main {
   padding: 50px; }
