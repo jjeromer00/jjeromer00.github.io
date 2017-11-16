@@ -25,6 +25,6 @@ function draw() {
       fill(random(250),random(200),random(100));
     }
   }
-  oval(mouseX, mouseY, 80, 80);
+  ellipse(mouseX, mouseY, 70, 90);
   //ellipse(mouseX, mouseY, 80, 80);
 }
