@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Converter</title>
+    <script src='main.js'></script>
+  </head>
+  <body>
+    <h1>Converter</h1>
+    <p>Convert code copied from a PDF file to semi-formatted code.<br>
+       It works well when the converted code is copied into Visual Studio Code<br>
+       and then formatted with the right/click menu option.<br><br>It was only
+       tested with JavaScript.
+    </p>
+    In:<br>
+    <textarea id='in' rows='10' cols='40'></textarea>
+    <br><br>
+    Output:<br>
+    <textarea id='out' rows='10' cols='40'></textarea>
+    <br>
+    <button onclick="main()">Convert Text</button>
+  </body>
+</html>

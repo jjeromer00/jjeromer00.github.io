@@ -7,7 +7,7 @@ a = input("Enter First Number: ")
 a = float(a)
 b = input("Enter Second Number: ")
 b = float(b)
-x = int(input("Now chose your operator 1)/ 2)* 3)- 4)+: "))
+x = input("Now chose your operator 1)/ 2)* 3)- 4)+: ")
 
 
 if x == 1:
