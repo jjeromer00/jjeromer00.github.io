@@ -16,8 +16,8 @@ function draw() {
     x += (targetX - x) * easing;
 
     if (mouseIsPressed) {
-        neckHeight = 16;
-        bodyHeight = 90;
+        neckHeight = 100;
+        bodyHeight = 200;
     }
     else {
         neckHeight = 70;
