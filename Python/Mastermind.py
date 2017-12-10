@@ -1,62 +1,62 @@
-from random import randint
+import random
 
-n1 = randint (1,9)
-n2 = randint (1,9)
-n3 = randint (1,9)
-n4 = randint (1,9)
-numberswrong = 0
-print (n1,n2,n3,n4)
-guess1 = input("guess the first number")
-guess2 = input("guess the second number")
-guess3 = input("guess the third number")
-guess4 = input("guess the fourth number")
-guess1 = int (guess1)
-guess2 = int (guess2)
-guess3 = int (guess3)
-guess4 = int (guess4)
-if guess1 != n1:
-    numberswrong +=1
-else:
-    numberswrong +=0   
-if guess2 != n2:
-    numberswrong +=1
-else:
-    numberswrong +=0 
-if guess3 != n3:
-    numberswrong +=1
-else:
-    numberswrong +=0 
-if guess4 != n4:
-    numberswrong +=1
-else:
-    numberswrong +=0 
-print ("you got",numberswrong, "numbers wrong")
-if numberswrong == 0:
-    print ("Well done")
-while numberswrong != 0:
-    guess1 = input("guess the first number")
-    guess2 = input("guess the second number")
-    guess3 = input("guess the third number")
-    guess4 = input("guess the fourth number")
-    guess1 = int (guess1)
-    guess2 = int (guess2)
-    guess3 = int (guess3)
-    guess4 = int (guess4)
-    if guess1 != n1:
-        numberswrong +=1
-    else:
-        numberswrong +=0   
-    if guess2 != n2:
-        numberswrong +=1
-    else:
-        numberswrong +=0 
-    if guess3 != n3:
-        numberswrong +=1
-    else:
-        numberswrong +=0 
-    if guess4 != n4:
-        numberswrong +=1
-    else:
-        numberswrong +=0 
-    print ("you got",numberswrong, "numbers wrong")
-print ("Well done")
+print (" --- MASTERMIND --- \n")
+print ("Guess the secret color code in as few tries as possible.\n")
+print ("Please, enter your color code.\nYou can use red(R), green(G), blue(B), and yellow(Y)")
+
+colors = ["R", "G", "B", "Y"]
+attempts = 0
+game = True
+
+# computer randomly picks four-color code
+color_code = random.sample(colors,4)	
+print (color_code)
+
+# player guesses the number	
+while game:
+	correct_color = ""
+	guessed_color = ""
+	player_guess = input().upper()
+	attempts += 1
+	
+	# checking if player's input is correct
+	if len(player_guess) != len(color_code):
+		print ("\nThe secret code has exactly four colors. I know, you can count to four. Try again!")
+		continue
+	for i in range(4):
+		if player_guess[i] not in colors:
+			print ("\nLook up what colors you can use in this game. You are not a daltonist, are you?")
+			continue
+			
+	# comparison between player's input and secret code
+	if correct_color != "XXXX":
+		for i in range(4):
+			if player_guess[i] == color_code[i]:
+				correct_color += "X"
+			if  player_guess[i] != color_code[i] and player_guess[i] in color_code:
+				guessed_color += "O"
+		print (correct_color +  guessed_color + "\n")		
+		
+	if correct_color == "XXXX":
+		if attempts == 1:
+			print ("Wow! You guessed at the first attempt!")
+		else:
+			print ("Well done... You needed " + str(attempts) + " attempts to guess.")
+		game = False
+		
+	if attempts >= 1 and attempts <6 and correct_color != "XXXX":
+		print ("Next attempt: ")
+	elif attempts >= 6:
+		print ("You didn't guess! The secret color code was: " + str(color_code))	
+
+	# play or not to play
+	while game == False:
+		finish_game = input("\nDo you want to play again (Y/N)?").upper()	
+		attempts = 0
+		if finish_game =="N":
+			print ("Thanks for the game! Bye, bye!")
+		elif finish_game == "Y":
+			game = True
+			print ("So, let's play again... Guess the secret code: ")
+
+# --- end --- #
