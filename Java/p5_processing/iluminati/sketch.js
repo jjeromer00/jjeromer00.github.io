@@ -7,9 +7,9 @@ function centerCanvas() {
 }
 
 function setup() {
-  cnv = createCanvas(600, 600);
+  cnv = createCanvas(800, 1000);
   centerCanvas();
-  background(255, 200, 200);
+  background(110, 250, 200);
 }
 
 function windowResized() {
@@ -19,9 +19,9 @@ function windowResized() {
 function draw() {
   fill(130,140,200, 100);
 
-  for (let x = 10; x <= 200; x += 10) {
-    fill(x + 30, x * 5, x * 10, 100);
-    rect(x, x + 5, x * 5, 200);
+  for (let x = 155; x <= 200; x += 5) {
+    fill(x + 30, x * 17, x * 10, 100);
+    tri(x, x + 5, x * 5, 110);
   }
 
 }
