@@ -7,9 +7,9 @@ function centerCanvas() {
 }
 
 function setup() {
-  cnv = createCanvas(600, 600);
+  cnv = createCanvas(800, 600);
   centerCanvas();
-  background(50, 210, 230);
+  background(255, 255, 255);
 }
 
 function windowResized() {
@@ -19,12 +19,12 @@ function windowResized() {
 function draw() {
   if (mouseX !== pmouseX || mouseY !== pmouseY) {
     if (mouseIsPressed) {
-      fill(75,0,125);
+      fill(random(255), random(175), 50);
     }
     else {
-      fill(random(250),random(200),random(100));
+      fill(125, 250, 198);
     }
   }
-  ellipse(mouseX, mouseY, 70, 90);
+  ellipse(mouseX, mouseY, 75, 75);
   //ellipse(mouseX, mouseY, 80, 80);
 }
