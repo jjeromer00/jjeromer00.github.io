@@ -1,62 +1,59 @@
 import random
 
-print (" --- MASTERMIND --- \n")
-print ("Guess the secret color code in as few tries as possible.\n")
-print ("Please, enter your color code.\nYou can use red(R), green(G), blue(B), and yellow(Y)")
+print ('MASTERMIND \n')
 
-colors = ["R", "G", "B", "Y"]
-attempts = 0
+print ('GOAL: Find the color code it the fewest amount of tries.\n')
+
+print ('Please, enter your color code.\nYour choices for color are R for red, O for orange, G for green, and B for blue.\n(NOTE: NOT caps sensitive)')
+
+colors = ["R", "O", "G", "B"]
+trys = 0
 game = True
 
-# computer randomly picks four-color code
-color_code = random.sample(colors,4)	
-print (color_code)
+key = random.sample(colors,4)	
+print (key)
 
-# player guesses the number	
+	
 while game:
 	correct_color = ""
 	guessed_color = ""
 	player_guess = input().upper()
-	attempts += 1
+	trys += 1
 	
-	# checking if player's input is correct
-	if len(player_guess) != len(color_code):
-		print ("\nThe secret code has exactly four colors. I know, you can count to four. Try again!")
+	
+	if len(player_guess) != len(key):
+		print ('\nThe code has four colors. Try again!')
 		continue
 	for i in range(4):
 		if player_guess[i] not in colors:
-			print ("\nLook up what colors you can use in this game. You are not a daltonist, are you?")
+			print ('\n One or more of those colors are not in the game. Try again!')
 			continue
 			
-	# comparison between player's input and secret code
-	if correct_color != "XXXX":
+	
+	if correct_color != 'XXXX':
 		for i in range(4):
-			if player_guess[i] == color_code[i]:
-				correct_color += "X"
-			if  player_guess[i] != color_code[i] and player_guess[i] in color_code:
-				guessed_color += "O"
-		print (correct_color +  guessed_color + "\n")		
+			if player_guess[i] == key[i]:
+				correct_color += 'X'
+			if  player_guess[i] != key[i] and player_guess[i] in key:
+				guessed_color += 'O'
+		print (correct_color +  guessed_color + '\n')		
 		
-	if correct_color == "XXXX":
-		if attempts == 1:
-			print ("Wow! You guessed at the first attempt!")
-		else:
-			print ("Well done... You needed " + str(attempts) + " attempts to guess.")
+	if correct_color == 'XXXX':
+		print ('Good Job, You  only needed ' + str(trys) + ' attempts to guess.')
 		game = False
 		
-	if attempts >= 1 and attempts <6 and correct_color != "XXXX":
-		print ("Next attempt: ")
-	elif attempts >= 6:
-		print ("You didn't guess! The secret color code was: " + str(color_code))	
+	if trys >= 1 and trys <6 and correct_color != "XXXX":
+		print ("Next try: ")
+	elif trys >= 6:
+		print ("You Lost! The code was: " + str(key))	
 
-	# play or not to play
+	
 	while game == False:
-		finish_game = input("\nDo you want to play again (Y/N)?").upper()	
-		attempts = 0
-		if finish_game =="N":
-			print ("Thanks for the game! Bye, bye!")
-		elif finish_game == "Y":
+		finish_game = input('\nDo you want to play again (Y/N)?').upper()	
+		trys = 0
+		if finish_game =='N':
+			print ('Good Bye :)')
+		elif finish_game == 'Y':
 			game = True
-			print ("So, let's play again... Guess the secret code: ")
+			print ('Guess the secret code: ')
 
-# --- end --- #
