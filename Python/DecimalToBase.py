@@ -2,7 +2,7 @@ import math
 
 def convertToBase(startVal):
     val = ''
-    while startVal >= 0:
+    while startVal > 0:
         remain = startVal%2
         if remain == 0:
             val ='0' + val
