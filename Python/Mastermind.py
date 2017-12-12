@@ -2,7 +2,7 @@ import random
 
 print ('MASTERMIND \n')
 
-print ('GOAL: Find the color code it the fewest amount of tries.\n')
+print ('GOAL: Find the color code in 8 or less trys.\n')
 
 print ('Please, enter your color code.\nYour choices for color are R for red, O for orange, G for green, and B for blue.\n(NOTE: NOT caps sensitive)')
 
@@ -11,12 +11,10 @@ trys = 0
 game = True
 
 key = random.sample(colors,4)	
-print (key)
 
-	
 while game:
-	correct_color = ""
-	guessed_color = ""
+	rightAns = ""
+	color_guess = ""
 	player_guess = input().upper()
 	trys += 1
 	
@@ -26,25 +24,25 @@ while game:
 		continue
 	for i in range(4):
 		if player_guess[i] not in colors:
-			print ('\n One or more of those colors are not in the game. Try again!')
+			print ('\n That Color is not in the game!')
 			continue
 			
 	
-	if correct_color != 'XXXX':
+	if rightAns != 'XXXX':
 		for i in range(4):
 			if player_guess[i] == key[i]:
-				correct_color += 'X'
+				rightAns += 'X'
 			if  player_guess[i] != key[i] and player_guess[i] in key:
-				guessed_color += 'O'
-		print (correct_color +  guessed_color + '\n')		
+				color_guess += 'O'
+		print (rightAns +  color_guess + '\n')		
 		
-	if correct_color == 'XXXX':
-		print ('Good Job, You  only needed ' + str(trys) + ' attempts to guess.')
+	if rightAns == 'XXXX':
+		print ('Good Job, You  only needed ' + str(trys) + ' trys to win.')
 		game = False
 		
-	if trys >= 1 and trys <6 and correct_color != "XXXX":
+	if trys >= 1 and trys <8 and rightAns != "XXXX":
 		print ("Next try: ")
-	elif trys >= 6:
+	elif trys >= 8:
 		print ("You Lost! The code was: " + str(key))	
 
 	
