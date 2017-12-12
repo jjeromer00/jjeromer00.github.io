@@ -1,8 +1,9 @@
 import random
 
 def main():
-    welcome = ['Hangman!',
-               'You have 10 attempts, Good luck!'
+    welcome = ['Welcome to Hangman! A word will be chosen at random and',
+               'you must try to guess the word correctly letter by letter',
+               'before you run out of attempts. Good luck!'
                ]
 
     for line in welcome:
@@ -14,9 +15,9 @@ def main():
     while play_again:
         
 
-        words = ["basketball", "chairs", "shoes", "shampoo", "clothing",
-                 "computer", "python", "jumpingjacks", "glasses", "sweatshirt",
-                 "sweatpants", "bedframe", "friends", "monitor", "biology",
+        words = ["hangman", "chairs", "backpack", "bodywash", "clothing",
+                 "computer", "python", "program", "glasses", "sweatshirt",
+                 "sweatpants", "mattress", "friends", "clocks", "biology",
                  "algebra", "suitcase", "knives", "ninjas", "shampoo"
                  ]
 
