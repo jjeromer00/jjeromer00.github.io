@@ -2,7 +2,11 @@
 <html>
 <title>CS260</title>
 <body>
-
+    <style>
+        body {background-color: rgb(165, 245, 185);}
+        h1   {color: rgb(0, 0, 0);}
+        p    {color: black;}
+        </style>
 <h1>Computer Science 260</h1>
 <p>
     <a href="courseWeeks/week1.html">Week 1</a>
@@ -37,6 +41,12 @@
 <p>
     <a href="">Finals Week</a>
 </p>
+<button onclick="goBack()">Go Back</button>
 
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>
 </body>
 </html>
